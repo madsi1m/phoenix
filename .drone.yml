@@ -161,7 +161,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -319,7 +319,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -477,7 +477,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -635,7 +635,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -793,7 +793,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -951,7 +951,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -1109,7 +1109,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -1267,7 +1267,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -1425,7 +1425,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -1583,7 +1583,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -1741,7 +1741,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -1899,7 +1899,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -2057,7 +2057,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -2215,7 +2215,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -2373,7 +2373,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -2531,7 +2531,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -2689,7 +2689,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -2847,7 +2847,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -3005,7 +3005,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -3163,7 +3163,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -3321,7 +3321,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -3479,7 +3479,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -3698,7 +3698,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -3856,7 +3856,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
@@ -4014,7 +4014,7 @@ services:
 
 - name: selenium
   pull: always
-  image: selenium/standalone-chrome-debug:3.141.59-yttrium
+  image: selenium/standalone-chrome-debug:latest
   volumes:
   - name: uploads
     path: /uploads
