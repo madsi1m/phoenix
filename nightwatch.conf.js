@@ -38,6 +38,7 @@ module.exports = {
         browserName: BROWSER_NAME || 'chrome',
         javascriptEnabled: true,
         acceptSslCerts: true,
+        loggingPrefs: { browser: 'ALL' },
         chromeOptions: {
           args: ['disable-gpu'],
           w3c: false
@@ -67,6 +68,11 @@ module.exports = {
           w3c: false
         },
         idleTimeout: 180
+      },
+      screenshots: {
+        enabled: true,
+        path: 'tests/reports/screenshots',
+        on_failure: true
       }
     },
     saucelabs: {
