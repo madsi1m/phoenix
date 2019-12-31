@@ -58,11 +58,6 @@ module.exports = {
         start_process: START_PROCESS,
         server_path: chromedriver.path,
         cli_args: ['--port=' + SELENIUM_PORT]
-      },
-      screenshots: {
-        enabled: true,
-        path: 'tests/reports/screenshots',
-        on_failure: true
       }
     },
     drone: {
@@ -73,11 +68,6 @@ module.exports = {
           w3c: false
         },
         idleTimeout: 180
-      },
-      screenshots: {
-        enabled: true,
-        path: 'tests/reports/screenshots',
-        on_failure: true
       }
     },
     saucelabs: {
