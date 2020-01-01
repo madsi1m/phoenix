@@ -1,7 +1,8 @@
+import assert from 'assert'
 import { setDefaultTimeout, After, Before } from 'cucumber'
 import { createSession, closeSession, client, startWebDriver, stopWebDriver } from 'nightwatch-api'
 import { rollbackConfigs, setConfigs, cacheConfigs } from './helpers/config'
-import { getAllLogsWithDateTime } from './helpers/browserConsole.js'
+import { getAllLogsWithDateTime } from './helpers/browserConsole'
 
 const RUNNING_ON_CI = !!process.env.CI
 const RUNNING_ON_SAUCELABS = !!process.env.SAUCE_USERNAME
@@ -71,12 +72,11 @@ After(function closeSessionForEnv () {
   return closeSession()
 })
 
-After(async function tryToReadBrowserConsoleOnFailure ({ result }) {
-  if (result.status === 'failed') {
-    const logs = await getAllLogsWithDateTime('SEVERE')
-    if (logs.length > 0) {
-      console.log('\nThe following logs were found in the browser console:\n')
-      logs.forEach(log => console.log(log))
-    }
-  }
+After(async function failIfThereIsConsoleError () {
+  const logs = await getAllLogsWithDateTime('SEVERE')
+  assert.strictEqual(
+    logs.length, 0,
+    '\nThe following errors were found in the browser console:\n' +
+    logs.join('\n')
+  )
 })
