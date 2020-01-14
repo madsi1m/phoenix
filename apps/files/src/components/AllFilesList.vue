@@ -9,6 +9,7 @@
               <span class="oc-visually-hidden" v-text="favoritesHeaderText" />
               <oc-star id="files-table-header-star" aria-hidden="true" class="uk-display-block uk-disabled" />
             </div>
+            <div></div>
             <div class="uk-text-truncate uk-text-meta uk-width-expand" v-translate>Name</div>
             <div :class="{ 'uk-visible@s' : !_sidebarOpen, 'uk-hidden'  : _sidebarOpen }" class="uk-text-meta uk-width-small" v-translate>Size</div>
             <div type="head" :class="{ 'uk-visible@s' : !_sidebarOpen, 'uk-hidden'  : _sidebarOpen }" class="uk-text-nowrap uk-text-meta uk-width-small" v-translate>Modification Time</div>
@@ -27,6 +28,10 @@
                 :uk-tooltip="disabledActionTooltip(item)"
                 class="uk-margin-small-left"
               />
+            </div>
+            <div>
+              <oc-icon v-if="$_isUserShare(item)" name="group" size="small" :class="'oc-icon-' + $_shareUserIconVariation(item)"/>
+              <oc-icon v-if="$_isLinkShare(item)" name="link" size="small" :class="'oc-icon-' + $_shareLinkIconVariation(item)"/>
             </div>
             <div class="uk-text-meta uk-text-nowrap uk-width-small" :class="{ 'uk-visible@s' : !_sidebarOpen, 'uk-hidden'  : _sidebarOpen }">
               {{ item.size | fileSize }}
@@ -91,6 +96,34 @@ export default {
   methods: {
     ...mapActions('Files', ['loadFolder', 'setFilterTerm', 'markFavorite',
       'setHighlightedFile', 'setPublicLinkPassword']),
+
+    $_extractKinds (name) {
+      return name.substr(name.indexOf('(') + 1)
+    },
+
+    $_isUserShare (item) {
+      // FIXME: get from real data
+      const kinds = this.$_extractKinds(item.basename) || ''
+      return kinds.indexOf('U') >= 0
+    },
+
+    $_isLinkShare (item) {
+      // FIXME: get from real data
+      const kinds = this.$_extractKinds(item.basename) || ''
+      return kinds.indexOf('L') >= 0
+    },
+
+    $_shareUserIconVariation (item) {
+      // FIXME: get from real data
+      const kinds = this.$_extractKinds(item.basename) || ''
+      return (kinds.indexOf('UP') >= 0) ? 'active' : 'passive'
+    },
+
+    $_shareLinkIconVariation (item) {
+      // FIXME: get from real data
+      const kinds = this.$_extractKinds(item.basename) || ''
+      return (kinds.indexOf('LP') >= 0) ? 'active' : 'passive'
+    },
 
     $_ocFilesFolder_getFolder () {
       this.setFilterTerm('')
@@ -184,5 +217,14 @@ export default {
   /* FIXME */
   #files-table-header-star {
     opacity: 0;
+  }
+</style>
+<style>
+  .oc-icon-active>svg {
+    fill: #002966 !important;
+  }
+
+  .oc-icon-passive>svg {
+    fill: #cccccc !important;
   }
 </style>
