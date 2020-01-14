@@ -116,13 +116,13 @@ export default {
     $_shareUserIconVariation (item) {
       // FIXME: get from real data
       const kinds = this.$_extractKinds(item.basename) || ''
-      return (kinds.indexOf('UP') >= 0) ? 'active' : 'passive'
+      return (kinds.indexOf('OUP') >= 0) ? 'active' : 'passive'
     },
 
     $_shareLinkIconVariation (item) {
       // FIXME: get from real data
       const kinds = this.$_extractKinds(item.basename) || ''
-      return (kinds.indexOf('LP') >= 0) ? 'active' : 'passive'
+      return (kinds.indexOf('OLP') >= 0) ? 'active' : 'passive'
     },
 
     $_ocFilesFolder_getFolder () {
