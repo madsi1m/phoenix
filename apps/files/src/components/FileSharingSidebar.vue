@@ -12,6 +12,12 @@
           key="no-reshare-permissions-message"
           v-text="noResharePermsMessage"
         />
+        <div v-if="!!$_ocCollaborators_owner">
+          <oc-grid gutter="small" class="files-collaborators-owner">
+            <div></div>
+            <collaborator class="uk-width-expand" :collaborator="$_ocCollaborators_owner" />
+          </oc-grid>
+        </div>
         <div v-if="$_ocCollaborators_users.length > 0" id="files-collaborators-list" key="oc-collaborators-user-list">
           <h5>
             <translate>Users</translate>
@@ -50,7 +56,7 @@
             </oc-grid>
           </template>
         </div>
-        <div v-if="!shares.length && !sharesLoading" key="oc-collaborators-no-results"><translate>No collaborators</translate></div>
+        <div v-if="!shares.length && !sharesLoading && !$_ocCollaborators_owner" key="oc-collaborators-no-results"><translate>No collaborators</translate></div>
       </template>
     </div>
     <div :aria-hidden="visiblePanel != 'newCollaborator'" :inert="visiblePanel != 'newCollaborator'">
@@ -125,6 +131,30 @@ export default {
     selectedFile () {
       return this.highlightedFile
     },
+    $_ocCollaborators_owner () {
+      // FIXME: make it use actual data
+      console.log(this.highlightedFile)
+      const kinds = this.$_extractKinds(this.highlightedFile.basename) || ''
+      if (kinds.indexOf('IUP') >= 0 || kinds.indexOf('IUC') >= 0) {
+        const share = {
+          name: this.highlightedFile.owner.username,
+          displayName: this.highlightedFile.owner.displayName,
+          info: {
+            uid_owner: 'bob',
+            share_type: 0, // to make it render avatar
+            share_with_additional_info: []
+          },
+          role: { name: 'owner' }
+        }
+        if (kinds.indexOf('OUP') && this.user.id === 'dave') {
+          // add reshare info
+          share.info.uid_owner = 'bob'
+          share.info.displayname_owner = 'bob'
+        }
+        return share
+      }
+      return null
+    },
     $_ocCollaborators_users () {
       return this.shares.filter(collaborator => {
         return collaborator.info.share_type === '0' || collaborator.info.share_type === '6'
@@ -149,6 +179,9 @@ export default {
       'sharesClearState',
       'deleteShare'
     ]),
+    $_extractKinds (name) {
+      return name.substr(name.indexOf('(') + 1)
+    },
     $_ocCollaborators_editShare (share) {
       this.currentShare = share
       this.visiblePanel = 'editCollaborator'

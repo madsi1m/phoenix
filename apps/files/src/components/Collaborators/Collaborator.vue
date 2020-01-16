@@ -48,7 +48,14 @@ export default {
         return this.advancedRole
       }
 
-      return this.roles[this.collaborator.role.name]
+      const role = this.roles[this.collaborator.role.name]
+      if (role) {
+        return role
+      }
+
+      return {
+        label: this.$gettext('Owner')
+      }
     }
   },
   mounted () {
